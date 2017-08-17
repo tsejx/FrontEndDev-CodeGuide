@@ -1,18 +1,16 @@
 ﻿# Javascript 编码规范
 
-标签（空格分隔）： 语义化
-
----
-[TOC]
 ## 命名规范
 函数和变量命名采用驼峰命名法。
 ## 编码规则
 1. 采用统一的缩进方式排版代码；
 2. 关键词、条件括弧后面使用空格；运算操作符号两侧使用空格；语句分割符‘,’后面使用空格；
 
+```javascript
     var name[空格]=[空格]value;
       if[空格](a,[空格]b) {
     }
+```
 
 3. 左大括号"{"可以居行尾，也可写在下行首（独自一行）,右大括号"}"单独占一行，居行首；
 4. 句末必须用分号结尾；
@@ -21,27 +19,29 @@
 7. 语法意义相互独立的代码将用空行分隔。
 
 
-#JavaScript 编码风格
-##命名
+# JavaScript 编码风格
+
+## 命名
+
 通常，使用 `functionNamesLikeThis`, `variableNamesLikeThis`, `ClassNamesLikeThis`, `EnumNamesLikeThis`, `methodNamesLikeThis` 和 `SYMBOLIC_CONSTANTS_LIKE_THIS` 。具体如下：
 
-###属性和方法
+### 属性和方法
 
  - 文件或类中的私有属性，变量和方法名应该以下划线 "_" 开头； 
  - 保护属性, 变量和方法名不需要下划线开头，和公共变量名一样。
    
-###方法和函数参数
+### 方法和函数参数
  - 可选参数以 `opt_` 开头；
  - 函数的参数个数不固定时，应该添加最后一个参数 `var_args`为参数的个数。你也可以不设置`var_args` 而取代使用 `arguments`；
  - 可选和可变参数应该在 `@param`标记中说明清楚。
 
 虽然这两个规定对编译器没有任何影响，但还是请尽量遵守。
 
-###Getters 和 Setters
+### Getters 和 Setters
 
 `Getters` 和 `setters` 并不是必要的。但只要使用它们了，就请将 `getters` 命名成 `getFoo()` 形式，将 `setters` 命名成 `setFoo(value)` 形式。(对于布尔类型的 `getters`，使用 `isFoo()` 也可。)
 
-###命名空间
+### 命名空间
 
 JavaScript 不支持包和命名空间。
 
@@ -103,23 +103,24 @@ myapp.main = function() {
   MyClass.staticHelper(null); 
 };
 ```
-###文件名
+### 文件名
 
 文件名应该使用小写字符，以避免在有些系统平台上不识别大小写的命名方式。文件名以 `.js` 结尾，不要包含除 `-` 和 `_` 外的标点符号(使用 `-` 优于 `_`)。
 
-##自定义 toString() 方法
+## 自定义 toString() 方法
 可自定义 `toString()` 方法，但确保你的实现方法满足：（1）总是成功；（2）没有其他负面影响。如果不满足这两个条件，那么可能会导致严重的问题。比如：如果 `toString()` 调用了包含 `assert` 的函数，`assert` 输出导致失败的对象，这在 `toString()` 也会被调用。
 
-##延迟初始化
+## 延迟初始化
 可以延迟变量的初始化，没有必要在每次声明变量时就将其初始化。
 
-##明确作用域
+## 明确作用域
 任何时候都要明确作用域，以提高可移植性和清晰度。
 
 例如，不要依赖于作用域链中的 window 对象。可能在其他应用中，你函数中的 window 不是指之前的那个窗口对象。
 
-##代码格式化
-###大括号
+## 代码格式化
+
+### 大括号
 
 分号会被隐式插入到代码中，所以你务必在同一行上插入大括号。例如：
 ```javascript
@@ -129,7 +130,7 @@ if (something) {
   // ... 
 }
 ```
-###数组和对象的初始化
+### 数组和对象的初始化
 
 **如果初始值不是很长，就保持写在单行上：**
 ```javascript
@@ -172,14 +173,14 @@ CORRECT_Object.prototype = {
 };
 ```
 ```
-//不要这样做
+// 不要这样做
 WRONG_Object.prototype = { 
   a          : 0, 
   b          : 1, 
   lengthyName: 2 
 };
 ```
-###函数参数
+### 函数参数
 
 尽量让函数参数在同一行上。如果一行超过 80 字符，每个参数独占一行，并以4个空格缩进，或者与括号对齐，以提高可读性。尽可能不要让每行超过80个字符。
 ```javascript
@@ -217,7 +218,7 @@ function bar(veryDescriptiveArgumentNumberOne,
   // ...
 }
 ```
-###传递匿名函数
+### 传递匿名函数
 
 如果参数中有匿名函数，函数体从调用该函数的左边开始缩进2个空格，而不是从 function 这个关键字开始。这让匿名函数更加易读 (不要增加很多没必要的缩进让函数体显示在屏幕的右侧)。
 ```javascript
@@ -234,7 +235,7 @@ prefix.something.reallyLongFunctionName('whatever', function(a1, a2) {
   } 
 });
 ```
-###更多的缩进
+### 更多的缩进
 
 事实上，除了初始化数组和对象，和传递匿名函数外，所有被拆开的多行文本要么选择与之前的表达式左对齐，要么以4个(而不是2个)空格作为一缩进层次。
 ```
@@ -267,7 +268,7 @@ if (searchableCollection(allYourStuff).contains(theStuffYouWant) &&
   ambientNotification.activate();
 }
 ```
-###空行
+### 空行
 
 使用空行来划分一组逻辑上相关联的代码片段。
 ```javascript
@@ -279,7 +280,7 @@ nowDoSomethingWith(y);
  
 andNowWith(z);
 ```
-###二元和三元操作符
+### 二元和三元操作符
 
 操作符始终跟随着前行，这样就不用顾虑分号的隐式插入问题。如果一行实在放不下，还是按照上述的缩进风格来换行。
 ```javascript
@@ -294,19 +295,19 @@ var z = a ?
         moreComplicatedB : 
         moreComplicatedC;
 ```
-##括号
+## 括号
 括号只在需要的时候使用。
 
 不要滥用括号，只在必要的时候使用它。
 
 对于一元操作符(如 `delete`, `typeof` 和 `void` )，或是在某些关键词(如 `return`, `throw`, `case`, `new` )之后，不要使用括号。
 
-##字符串
+## 字符串
 使用 单引号(') 优于 双引号(") 。
 ```javascript
 var msg = 'This is some HTML';
 ```
-##可见性
+## 可见性
 用 `@private` 和 `@protected` 来指名类、函数、属性的可见性。
 
 标记为 `@private` 的全局变量和函数，表示他们只能在当前文件中访问。
@@ -385,7 +386,7 @@ AA_SubClass.prototype.method = function() {
   return this.protectedProp; 
 }; 
 ```
-##JavaScript 类型
+## JavaScript 类型
 <table class="js-type">
   <caption>javascript类型</caption>
   <tr>
@@ -552,7 +553,7 @@ project.MyEnum = {
 </table>
 
 
-###可空 vs. 可选 参数和属性
+### 可空 vs. 可选 参数和属性
 
 JavaScript 是一种弱类型语言，明白可选，非空和未定义参数或属性之间的细微差别还是很重要的。
 
@@ -625,7 +626,7 @@ function strangeButTrue(nonNull, mayBeNull, opt_nonNull, opt_mayBeNull) {
   // ... 
 };
 ```
-##注释
+## 注释
 我们使用 JSDoc 中的注释风格。行内注释使用 // 变量的形式。另外，我们也遵循 C++ 代码注释风格。这也就是说你需要：
 
 + 版权和著作权的信息，
@@ -636,7 +637,7 @@ function strangeButTrue(nonNull, mayBeNull, opt_nonNull, opt_mayBeNull) {
 
 为了避免出现句子片段，请以合适的大/小写单词开头，并以合适的标点符号结束这个句子。
 
-###顶层/文件注释
+### 顶层/文件注释
 
 顶层注释用于告诉不熟悉这段代码的读者这个文件中包含哪些东西。应该提供文件的大体内容，它的作者，依赖关系和兼容性信息。如下：
 ```
@@ -648,7 +649,7 @@ function strangeButTrue(nonNull, mayBeNull, opt_nonNull, opt_mayBeNull) {
  * @author user@google.com (Firstname Lastname) 
  */
  ```
-###类注释
+### 类注释
 
 每个类的定义都要附带一份注释，描述类的功能和用法。也需要说明构造函数参数。如果该类继承自其它类，应该使用 @extends 标记。如果该类是对接口的实现，应该使用 @implements 标记。
 ```javascript
@@ -664,7 +665,7 @@ project.MyClass = function(arg1, arg2) {
 }; 
 goog.inherits(project.MyClass, goog.Disposable);
 ```
-###方法与函数的注释
+### 方法与函数的注释
 
 提供参数的说明。使用完整的句子，并用第三人称来书写方法说明。
 ```javascript
@@ -696,7 +697,7 @@ goog.ui.Component.prototype.getElement = function() {
   return this.element_; 
 };
 ```
-###属性注释
+### 属性注释
 
 也需要对属性进行注释。
 ```javascript
@@ -706,14 +707,14 @@ goog.ui.Component.prototype.getElement = function() {
  */ 
 project.MyClass.prototype.someProperty = 4;
 ```
-###类型转换的注释
+### 类型转换的注释
 
 有时，类型检查不能很准确地推断出表达式的类型，所以应该给它添加类型标记注释来明确之，并且必须在表达式和类型标签外面包裹括号。
 ```javascript
 /** @type {number} */ (x) 
 (/** @type {number} */ x)
 ```
-###JSDoc 缩进
+### JSDoc 缩进
 
 如果你在 `@param` , `@return` , `@supported` , `@this` 或 `@deprecated` 中断行，需要像在代码中一样，使用4个空格作为一个缩进层次。
 ```javascript
@@ -743,7 +744,7 @@ project.MyClass.prototype.method = function(foo) {
   return 5; 
 };
 ```
-###枚举
+### 枚举
 ```javasript
 /** 
  * Enum for tri-state values. 
@@ -765,7 +766,7 @@ project.setState = function(state) {
   // ... 
 };
 ```
-###Typedefs
+### Typedefs
 
 有时类型会很复杂。比如下面的函数，接收 `Element` 参数：
 ```javascript
@@ -792,7 +793,7 @@ goog.createElement = function(tagName, contents) {
 ... 
 };
 ```
-###JSDoc 标记表
+### JSDoc 标记表
 <table class="js-type">
   <caption>JSDoc 标记表</caption>
   <tr>
@@ -1194,10 +1195,7 @@ var document;</pre></td>
 
 </table>
 
-
-
-
-###JSDoc 中的 HTML
+### JSDoc 中的 HTML
 
 JSDoc 中的 HTML。
 
@@ -1241,8 +1239,10 @@ Changes tags to tags.
 * Changes 'b' tags to 'span' tags. 
 */
 ```
-#提示和技巧
-##True 和 False 布尔表达式
+# 提示和技巧
+
+## True 和 False 布尔表达式
+
 下面的布尔表达式都返回 `false`：
 
 + null
@@ -1304,7 +1304,7 @@ if (y) {
     {} != true
     {} != false
 
-##条件(三元)操作符
+## 条件(三元)操作符
 下面的代码：
 ```javascript
 if (val != 0) { 
@@ -1375,7 +1375,7 @@ if (kid) {
 ```javascript
 node && node.kids && node.kids[index] && foo(node.kids[index]);
 ```
-##使用 join() 来创建字符串
+## 使用 join() 来创建字符串
 下面的代码在IE下非常慢：
 ```
 function listHtml(items) { 
@@ -1406,7 +1406,7 @@ function listHtml(items) {
 ```
 你也可以是用数组作为字符串构造器，然后通过 `myArray.join('')` 转换成字符串。不过由于赋值操作快于数组的 `push()`，所以尽量使用赋值操作。
 
-##遍历 Node List
+## 遍历 Node List
 Node lists 是通过给节点迭代器加一个过滤器来实现的。这表示获取他的属性，如 `length` 的时间复杂度为 `O(n)`，通过 `length` 来遍历整个列表需要 `O(n^2)` 。
 ```javawsxript
 var paragraphs = document.getElementsByTagName('p'); 
@@ -1433,12 +1433,13 @@ for (var child = parentNode.firstChild; child; child = child.nextSibling) {
   doSomething(child); 
 }
 ```
-#JavaScript 语言规范
+# JavaScript 语言规范
+
 JavaScript 是一种客户端脚本语言, Google 的许多开源工程中都有用到它。
 
 这份指南列出了编写 JavaScript 时需要遵守的规则。
 
-##变量
+## 变量
 声明变量必须加上 `var` 关键字。
 
 当你没有写 `var`，变量就会暴露在全局上下文中，这样很可能会和现有变量冲突。
@@ -1447,7 +1448,7 @@ JavaScript 是一种客户端脚本语言, Google 的许多开源工程中都有
 
 所以，务必用 `var` 去声明变量。
 
-##常量
+## 常量
 常量通常使用大写字符，并用下划线分割。如：`NAMES_LIKE_THIS`。
 
 在注释里，你可以用 `@const` 标记来指明它是一个常量。但请永远不要在程序中使用 `const` 关键词。
@@ -1479,7 +1480,7 @@ SECONDS_TABLE = {
 
 至于关键词 `const`，因为 IE 不能识别, 所以不要使用。
 
-##分号
+## 分号
 总是使用分号。
 
 如果仅依靠语句间的隐式分隔, 有时会很麻烦。使用分号，会使你自己更能清楚哪里是语句的起止。
@@ -1524,10 +1525,10 @@ function foo() {
   return true;
 }  // no semicolon here.
 ```
-##嵌套函数
+## 嵌套函数
 嵌套函数很有用，比如：减少重复代码、隐藏帮助函数等。没什么其他需要注意的地方，随意使用。
 
-##块内函数声明
+## 块内函数声明
 不要在块内声明一个函数。
 ```javascript
 //不要写成
@@ -1543,24 +1544,24 @@ if (x) {
   var foo = function() {}; 
 }
 ```
-##异常
+## 异常
 可以使用异常。
 
 你在写一个比较复杂的应用时，不可能完全避免不会发生任何异常。大胆去用吧。
 
-##自定义异常
+## 自定义异常
 可以自定义异常。
 
 有时发生异常了，但返回的错误信息比较奇怪，也不易读。虽然可以将含错误信息的引用对象或者可能产生错误的完整对象传递过来，但这样做都不是很好，最好还是自定义异常类，其实这些基本上都是最原始的异常处理技巧。所以在适当的时候使用自定义异常。
 
-##标准特性
+## 标准特性
 标准特性总是优于非标准特性。
 
 最大化可移植性和兼容性，尽量使用标准方法而不是用非标准方法。
 
 比如：优先用 `string.charAt(3)` 而不用 `string[3]`；通过 DOM 原生函数访问元素, 而不是使用应用封装好的快速接口。
 
-##封装基本类型
+## 封装基本类型
 不要去封装基本类型。
 
 没有任何理由去封装基本类型，另外还存在一些风险：
@@ -1582,7 +1583,7 @@ typeof new Boolean(0) == 'object';
 ```
 基本类型用于类型转换时，会非常实用。
 
-##方法、属性的定义
+## 方法、属性的定义
 有很多方法可以给构造器添加方法成员，我们更倾向于使用如下的形式：
 ```
 Foo.prototype.bar = function() {
@@ -1610,7 +1611,7 @@ Foo.prototype.dispose = function() {
   this.property_ = null;
 };
 ```
-##闭包
+## 闭包
 闭包也许是Javascript中最有用的特性了。有一份比较好的介绍闭包原理的 文档。
 
 有一点需要牢记，闭包保留了一个指向它封闭作用域的指针，所以，在给 DOM 元素附加闭包时，很可能会产生循环引用，进一步导致内存泄漏。比如下面代码：
@@ -1656,7 +1657,7 @@ var email = userInfo['email'];
 
 对于不支持 `JSON.parse` 方法的浏览器，可引入 `json2.js` 来解决。
 
-##with()
+## with()
 不要使用 `with` 。
 
 使用 `with` 语句速度要比不使用 `with` 语句的等价代码的速度慢得多。
@@ -1736,7 +1737,7 @@ useWith();
 ```
 大多数情况下， `with` 应用场景都可以用其他更好的方式代替。所以，我们建议，不要使用 `with` 。
 
-##this
+## this
 仅在对象构造器，方法，闭包中使用 `this` 。
 
 `this` 的语义很特别。有时它引用一个全局对象(大多数情况下)，调用者的作用域(使用 `eval` 时)，DOM 树中的节点(添加事件处理函数时)，新创建的对象(使用一个构造器)，或者其他对象(如果函数被 `call()` 或 `apply()` )。
@@ -1782,12 +1783,12 @@ function printArray(arr) {
   }
 }
 ```
-##关联数组
+## 关联数组
 永远不要使用 `Array` 作为 `map` / `hash` / `associative` 数组
 
 数组中不允许使用非整型作为索引值，所以也就不允许用关联数组。而取代它使用 Object 来表示 map / hash 对象
 
-##多行字符串
+## 多行字符串
 不要这样写长字符串：
 ```javascript
 var myString = 'A rather long string of English text, an error message \
@@ -1808,7 +1809,7 @@ var myString = 'A rather long string of English text, an error message ' +
                 'you\'ve got an error and all the extraneous whitespace is ' +
                 'just gravy.  Have a nice day.';
 ```
-##使用Array 和 Object 直接量
+## 使用Array 和 Object 直接量
 使用 `Array` 和 `Object` 语法，而不使用 `Array` 和 `Object` 构造函数。
 
 使用 `Array` 构造函数很容易因为传参不恰当导致错误
@@ -1856,10 +1857,10 @@ var o2 = {
   'strange key': 3
 };
 ```
-##不要修改内置对象的原型
+## 不要修改内置对象的原型
 千万不要修改内置对象，如 `Object.prototype` 和 `Array.prototype` 的原型。而修改内置对象，如 Function.prototype 的原型，虽然危险少些，但仍会导致调试时的诡异现象，所以也要避免修改其原型。
 
-##不要使用IE下的条件注释
+## 不要使用IE下的条件注释
 不要使用IE下的条件注释。不要将代码写成这样：
 ```javascript
 var f = function () {

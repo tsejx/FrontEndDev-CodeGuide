@@ -1,9 +1,5 @@
 ﻿# HTML编码规范
 
-标签（空格分隔）： 语义化
-
----
-[TOC]
 # 基本准则
 + 符合Web标准
 + 语义化HTML
@@ -32,8 +28,10 @@
 就是说，尽量在文档和模板中只包含结构性的 HTML，而将所有表现代码，移入样式表中；将所有动作行为，移入脚本之中。
 
 
-#排版规则
-##缩进
+# 排版规则
+
+## 缩进
+
 - 使用2个空格缩进
 - 嵌套元素应当缩进一次（即两个空格）
 ```
@@ -67,12 +65,12 @@ Tab键用两个空格代替
 <!-- 推荐 -->
 <img src="google.png" alt="Google">
 ```
-##行尾断句
+## 行尾断句
 每个样式属性或者每句代码后加 ";"
 
 方便压缩工具"断句"。
 
-##行尾空格
+## 行尾空格
 建议删除行尾白空格。
 ```
 <!-- 不推荐 -->
@@ -100,7 +98,7 @@ Tab键用两个空格代替
 </html>
 ```
 
-##注释
+## 注释
 尽可能的去解释你写的代码。说明该代码包括什么、目的是什么、能做什么、为什么使用它等。
 
 注释是否需要详尽，取决于项目的复杂程度。
@@ -151,8 +149,10 @@ Tab选项卡内容注释：
 <!-- /tab: news list -->
 ```
 
-#常规HTML设计规则 - head部分
+# 常规HTML设计规则 - head部分
+
 ## 文档类型
+
 使用html5文档声明，不再使用XHTML（application/xhtml+xml）。
 
 HTML5是目前所有HTML文档类型中的首选：
@@ -171,7 +171,8 @@ HTML5是目前所有HTML文档类型中的首选：
     </html>
 ```
 
-##语言属性
+## 语言属性
+
 根据 HTML5 规范：
 
     强烈建议为 html 根元素指定 lang 属性，从而为文档设置正确的语言。这将有助于语音合成工具确定其所应该采用的发音，有助于翻译工具确定其翻译时所应遵守的规则等等。
@@ -223,8 +224,10 @@ IE 支持通过特定的 `<meta>` 标签来确定绘制当前页面所应该采�
 <script src="code-guide.js"></script>
 ```
 
-#常规HTML设计规则 - body部分
-##HTML 的正确性
+# 常规HTML设计规则 - body部分
+
+## HTML 的正确性
+
 编写有效、正确的HTML代码，否则很难达到性能上的提升。
 
 可以使用一些工具验证你的代码，如 W3C HTML validator
@@ -396,83 +399,88 @@ html form
 3. 内联元素写在一行内，块状元素还有列表和表格要另起一行。
 
 ## 命名参考规范
-###(1)页面结构
-　　容器: `container`
-　　页头：`header`
-　　内容：`content/container`
-　　页面主体：`main`
-　　页尾：`footer`
-　　导航：`nav`
-　　侧栏：`sidebar`
-　　栏目：`column`
-　　页面外围控制整体布局宽度：`wrapper`
-　　左右中：`left right center`
-　　`section` 表示文档中的节、区段，可以和h1-h6一起来显示文档结构
-　　`article` 表示一块比较独立的内容或者主题内容，块级元素，比如blog的内容，报纸的文章
-　　`aside` 表示article以外的内容，而且应该和article有一定的关系，块级元素
-　　`hgroup` 表示一个文档、区段(section)的标题组合
-　　`figure` 表示以相对独立的或外引的元素，如img video
-　　`figcaption` 表示 figure内容的标题
+### (1)页面结构
 
-###(2)导航
-　　导航：`nav`
-　　主导航：`mainnav`
-　　子导航：`subnav`
-　　顶导航：`topnav`
-　　边导航：`sidebar`
-　　左导航：`leftsidebar`
-　　右导航：`rightsidebar`
-　　菜单：`menu`
-　　子菜单：`submenu`
-　　标题: `title`
-　　摘要:`summary`
+* 容器: `container`
+* 页头：`header`
+* 内容：`content/container`
+* 页面主体：`main`
+* 页尾：`footer`
+* 导航：`nav`
+* 侧栏：`sidebar`
+* 栏目：`column`
+* 页面外围控制整体布局宽度：`wrapper`
+* 左右中：`left right center` 
+* `section` 表示文档中的节、区段，可以和h1-h6一起来显示文档结构
+* `article` 表示一块比较独立的内容或者主题内容，块级元素，比如blog的内容，报纸的文章
+* `aside` 表示article以外的内容，而且应该和article有一定的关系，块级元素
+* `hgroup` 表示一个文档、区段(section)的标题组合
+* `figure` 表示以相对独立的或外引的元素，如img video
+* `figcaption` 表示 figure内容的标题
+
+### (2)导航
+
+* 导航：`nav`
+* 主导航：`mainnav`
+* 子导航：`subnav`
+* 顶导航：`topnav`
+* 边导航：`sidebar`
+* 左导航：`leftsidebar`
+* 右导航：`rightsidebar`
+* 菜单：`menu`
+* 子菜单：`submenu`
+* 标题: `title`
+* 摘要:`summary`
 　　
-###(3)功能
-　　标志：`logo`
-　　广告：`banner`
-　　登陆：`login`
-　　登录条：`loginbar`
-　　注册：`regsiter`
-　　搜索：`search`
-　　功能区：`shop`
-　　标题：`title`
-　　加入：`joinus`
-　　状态：`status`
-　　按钮：`btn`
-　　滚动：`scroll`
-　　标签页：`tab`
-　　文章列表：`list`
-　　提示信息：`msg`
-　　当前的: `current`
-　　小技巧：`tips`
-　　图标: `icon`
-　　注释：`note`
-　　指南：`guild`
-　　服务：`service`
-　　热点：`hot`
-　　新闻：`news`
-　　下载：`download`
-　　投票：`vote`
-　　合作伙伴：`partner`
-　　友情链接：`link`
-　　版权：`copyright`
+### (3)功能
+
+* 标志：`logo`
+* 广告：`banner`
+* 登陆：`login`
+* 登录条：`loginbar`
+* 注册：`regsiter`
+* 搜索：`search`
+* 功能区：`shop`
+* 标题：`title`
+* 加入：`joinus`
+* 状态：`status`
+* 按钮：`btn`
+* 滚动：`scroll`
+* 标签页：`tab`
+* 文章列表：`list`
+* 提示信息：`msg`
+* 当前的: `current`
+* 小技巧：`tips`
+* 图标: `icon`
+* 注释：`note`
+* 指南：`guild`
+* 服务：`service`
+* 热点：`hot`
+* 新闻：`news`
+* 下载：`download`
+* 投票：`vote`
+* 合作伙伴：`partner`
+* 友情链接：`link`
+* 版权：`copyright`
 　　
-###(4)class的命名
-(1)颜色：使用颜色的名称或者16进制代码，如：
-　　`.red { color: red; } .f60 { color: #f60; } .ff8600 { color: #ff8600; }`
-(2)字体大小，直接使用“font+字体大小”作为名称，如：
-　　`.font12px { font-size: 12px; } .font9pt {font-size: 9pt; }`
-(3)对齐样式，使用对齐目标的英文名称，如：
-　　`.left { float:left; } .bottom { float:bottom; }`
-(4)标题栏样式，使用“类别+功能”的方式命名，如：
-　　`.barnews { } .barproduct { }`
+### (4)class的命名
+
+* (1)颜色：使用颜色的名称或者16进制代码，如：
+  * `.red { color: red; } .f60 { color: #f60; } .ff8600 { color: #ff8600; }`
+
+* (2)字体大小，直接使用“font+字体大小”作为名称，如：
+  * `.font12px { font-size: 12px; } .font9pt {font-size: 9pt; }`
+* (3)对齐样式，使用对齐目标的英文名称，如：
+  * `.left { float:left; } .bottom { float:bottom; }`
+* (4)标题栏样式，使用“类别+功能”的方式命名，如：
+  * `.barnews { } .barproduct { }`
 <br/>
 
-**注意事项：**
-　　1. 一律小写；
-　　2. 尽量用英文；
-　　3. 尽量不加中杠和下划线；
-　　4. 尽量不缩写，除非一看就明白的单词，如：wrapper可以写成wrap。
+* **注意事项：**
+  1. 一律小写；
+  2. 尽量用英文；
+  3. 尽量不加中杠和下划线；
+  4. 尽量不缩写，除非一看就明白的单词，如：wrapper可以写成wrap。
 
 ### (5)id和class命名约定
 1. id 和 class 的命名基本原则: *内容优先，表现为辅*。首先根据内容来命名，如:`#header`,`#footer`,`.main-nav`.如根据内容无法找到合适的命名，可以再结合表现进行命名，如：`col-main`, `col-sub`, `col-extra`,`blue-box`
@@ -500,8 +508,10 @@ html form
 ||Dialog|common通用|
 ***
 
-#HTML与SEO
-##页面良好层次
+# HTML与SEO
+
+## 页面良好层次
+
 保证整个页面在未加载样式表时仍有较好的层次清晰的页面结构。
 ```
 <!-- 不推荐 -->
@@ -548,14 +558,14 @@ H标签使用
 
 注：b是粗体标签，属于实体标签，它所包围的字符将被设为bold（粗体）；strong 是加重语气标签，属于逻辑标签，它的作用是加强字符语气。
 
-##标签属性使用
+## 标签属性使用
 在很多情况下，a都要使用title来说明该链接的相关说明或目的意义。
 
 例如：当使用overflow隐藏掉a中的溢出文字时，该a中的title是必不可少的，它可以告诉用户被隐藏掉的文字内容是什么；又或者当一个图片型链接出现时，该a中的title同样是必不可少的，它可以告诉用户这个图片链接是做什么用的。
 
 注：仅在img里添加alt标签在火狐提示文字是出不来的，alt是图片加载失败或未加载完全时显示出来的提示文字，要想鼠标移上去显示提示信息应该用title，严谨的写法是img里加入alt和title这两个标签。
 
-##精简代码
+## 精简代码
 代码保持精简，最优化，这样搜索引擎才更喜欢。
 
 

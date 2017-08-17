@@ -1,8 +1,6 @@
 ﻿# CSS 编码规范
 
-标签（空格分隔）： 语义化
----
-#CSS文件命名
+# CSS文件命名
 
     主要的 master.css；
     模块 module.css；
@@ -15,18 +13,20 @@
     补丁 mend.css；
     打印 print.css
 
-#CSS Meta规则
-##编码
+# CSS Meta规则
+
+## 编码
+
 一般情况下编码同`html`的一致。
 
 如果是`urf-8`，则不需要制定样式表的编码，因为它默认为`urf-8`。
 
-##注释
+## 注释
 代码是由人编写并维护的。请确保你的代码能够自描述、注释良好并且易于他人理解。好的代码注释能够传达上下文关系和代码目的。不要简单地重申组件或 class 名称。
 
 对于较长的注释，务必书写完整的句子；对于一般性注解，可以书写简洁的短语。
 
-###头部注释
+### 头部注释
 
 注明本CSS的用处，生成时间及作者等信息。
 ```
@@ -38,7 +38,7 @@ Author:     your name
 Update:      
 */
 ```
-###页面注释
+### 页面注释
 
 有时候一份CSS会把首页和各种二级页面样式写在一起，这时需要做页面注释。
 ```
@@ -46,7 +46,7 @@ Update:
  * 首页 
  ***********************************/
 ```
-###分级注释
+### 分级注释
 
 比如在main模块下，建立了news、photo等栏目，可使用分级注释，以指明层级结构。
 ```css
@@ -60,7 +60,7 @@ main {}
 /* photo */
 .photo  {}
 ```
-###区块间注释
+### 区块间注释
 ```
 /* news */
 .news {}
@@ -68,20 +68,22 @@ main {}
 /* photo */
 .photo  {}
 ```
-###修改注释
+### 修改注释
 
 当后期维护中有修改到css，需添加修改的注释。
 ```
 .news {} /* 修正横向滚动条错误 by your name */
 ```
 
-#CSS代码风格规则
-##CSS代码有效性
+# CSS代码风格规则
+
+## CSS代码有效性
+
 使用有效的CSS代码。
 
 可使用[W3C CSS validator][1]来验证css。
 
-##命名
+## 命名
 class应优先虑以这元素具体目的来进行命名，应尽量简短且富有含义。
 
 统一采用小写英文字母、数字、“-” 的组合。其中不得包含汉字、空格和特殊字符。
@@ -118,7 +120,7 @@ class应优先虑以这元素具体目的来进行命名，应尽量简短且富
  - 搜索：`search`
  - 登陆：`signin`
 
-##class命名
+## class命名
 
  - class 名称中只能出现小写字符和破折号（dashe）（不是下划线，也不是驼峰命名法）。破折号应当用于相关class的命名（类似于命名空间）（例如，.btn 和 .btn-danger）。
  - 避免过度任意的简写。`.btn` 代表 *button*，但是 `.s`不能表达任何意思。 
@@ -142,7 +144,7 @@ class应优先虑以这元素具体目的来进行命名，应尽量简短且富
 .tweet-header { ... }
 ```
 
-##选择器
+## 选择器
 避免出现过多的祖先选择器，各浏览器会有性能差异，消耗在选择器的时间也不尽相同。
 
 尽量最多控制在3级以内。
@@ -191,7 +193,7 @@ span { ... }
 .tweet .avatar { ... }
 ```
  
-##简化css
+## 简化css
 写属性值的时候尽量使用缩写。
 ```
 /* 不推荐 */
@@ -248,13 +250,15 @@ span { ... }
 /* 推荐 */
 .example { color: #ebc; }
 ```
-##Hacks
+## Hacks
 尽可能地避免使用hack的方式解决浏览器样式兼容性问题。
 
 尽量避免使用CSS filters。
 
-#CSS代码格式规则
-##单行书写
+# CSS代码格式规则
+
+## 单行书写
+
 一个类一行，每个属性间用空格隔开，不用强制换行。
 ```
 /* 不推荐 */
@@ -269,7 +273,7 @@ span { ... }
 /* 推荐 */
 .example { display: block; float: left; width: 200px; height: 300px; padding: 10px;}
 ```
-##分隔选择器
+## 分隔选择器
 每个选择器和声明都要独立新行。
 ```
 /* 不推荐 */
@@ -281,7 +285,7 @@ h1,
 h2,
 h3 { font-weight: normal; line-height: 1.2;}
 ```
-##属性名完结
+## 属性名完结
 出于一致性的原因，在属性名和值之间加一个空格（可不是属性名和冒号之间噢）。
 ```
 /* 不推荐 */
@@ -291,7 +295,7 @@ h3 { font-weight:bold;}
 /* 推荐 */
 h3 { font-weight: bold; }
 ```
-##声明完结
+## 声明完结
 考虑到一致性和拓展性，请在每个声明尾部都加上分号。
 ```
 /* 不推荐 */
@@ -304,7 +308,7 @@ h3 { font-weight: bold; }
 /* 推荐 */
 .test { display: block; height: 100px;}
 ```
-##css书写顺序
+## css书写顺序
 书写顺序按显示属性，自身属性， 文本属性顺序。
 
 显示属性
@@ -460,7 +464,7 @@ body {
 </style>
 ```
 
-##媒体查询（Media query）的位置
+## 媒体查询（Media query）的位置
 将媒体查询放在尽可能相关规则的附近。不要将他们打包放在一个单一样式文件中或者放在文档底部。如果你把他们分开了，将来只会被大家遗忘。下面给出一个典型的实例。
 
 ```css
@@ -475,7 +479,7 @@ body {
 }
 ```
 
-##带前缀的属性
+## 带前缀的属性
 当使用特定厂商的带有前缀的属性时，通过缩进的方式，让每个属性的值在垂直方向对齐，这样便于多行编辑。
 
 在 Textmate 中，使用 **Text → Edit Each Line in Selection** (⌃⌘A)。在 Sublime Text 2 中，使用 **Selection → Add Previous Line** (⌃⇧↑) 和 **Selection → Add Next Line** (⌃⇧↓)。
@@ -487,7 +491,7 @@ body {
           box-shadow: 0 1px 2px rgba(0,0,0,.15);
 }
 ```
-##单行规则声明
+## 单行规则声明
 对于只包含一条声明的样式，为了易读性和便于快速编辑，建议将语句放在同一行。对于带有多条声明的样式，还是应当将声明分为多行。
 
 这样做的关键因素是为了错误检测 -- 例如，CSS 校验器指出在 183 行有语法错误。如果是单行单条声明，你就不会忽略这个错误；如果是单行多条声明的话，你就要仔细分析避免漏掉错误了。
@@ -510,7 +514,7 @@ body {
 .icon-account   { background-position: 0 -40px; }
 
 ```
-##简写形式的属性声明
+## 简写形式的属性声明
 在需要显示地设置所有值的情况下，应当尽量限制使用简写形式的属性声明。常见的滥用简写属性声明的情况如下：
 
  - `padding` 
@@ -543,7 +547,7 @@ body {
 }
 ```
 
-##Less 和 Sass 中的嵌套
+## Less 和 Sass 中的嵌套
 避免不必要的嵌套。这是因为虽然你可以使用嵌套，但是并不意味着应该使用嵌套。只有在必须将样式限制在父元素内（也就是后代选择器），并且存在多个需要嵌套的元素时才使用嵌套。
 
 扩展阅读：
@@ -562,7 +566,7 @@ body {
 }
 ```
 
-##Less 和 Sass 中的操作符
+## Less 和 Sass 中的操作符
 为了提高可读性，在圆括号中的数学计算表达式的数值、变量和操作符之间均添加一个空格。
 ```css
 // Bad example
@@ -575,7 +579,7 @@ body {
   margin: 10px 0 (@variable * 2) 10px;
 }
 ```
-##代码组织
+## 代码组织
 
  - 以组件为单位组织代码段。
  - 制定一致的注释规范。
@@ -601,7 +605,7 @@ body {
 .element-heading { ... }
 ```
 
-##编辑器配置
+## 编辑器配置
 将你的编辑器按照下面的配置进行设置，以避免常见的代码不一致和差异：
 
  - 用两个空格代替制表符（soft-tab 即用空格代表 tab 符）。
@@ -612,95 +616,22 @@ body {
 参照文档并将这些配置信息添加到项目的 `.editorconfig` 文件中。例如：[Bootstrap 中的 .editorconfig 实例][10]。更多信息请参考 [about EditorConfig][11]。
 
 
-#样式初始化模板
+# 样式初始化模板
 ```
 /* CSS Reset */ 
-body, 
-div, 
-span, 
-object, 
-input, 
-h1, 
-h2, 
-h3, 
-h4, 
-h5, 
-h6, 
-p, 
-blockquote, 
-pre, 
-a, 
-abbr, 
-acronym, 
-address, 
-big, 
-cite, 
-code, 
-del, 
-dfn, 
-em, 
-img, 
-ins, 
-kbd, 
-q, 
-samp, 
-small, 
-strong, 
-sub, 
-sup, 
-tt, 
-var, 
-b, 
-i, 
-dl, 
-dt, 
-dd, 
-ol, 
-ul, 
-li, 
-fieldset, 
-form, 
-label, 
-legend, 
-table, 
-caption, 
-tbody, 
-tfoot, 
-thead, 
-tr, 
-th, 
-td, 
-hr { padding: 0; margin: 0; } 
+body, div, span, object, input, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, tt, var, b, i, dl, dt, dd,ol,ul, li, fieldset, form, label, legend, table, caption, tbody,tfoot, thead, tr, th, td, hr { padding: 0; margin: 0; } 
 table { border-collapse: collapse; border-spacing: 0; } 
 caption{ text-align:left;} 
-input,
-select{ vertical-align:middle;} 
-input,
-textarea,
-select{ font:12px Arial, Helvetica, sans-serif; } 
-fieldset, 
-img { border: 0; } 
-address,
-code,
-caption,
-th,
-cite,
-dfn,
-em,
-var{font-style:normal;} 
-ol, 
-ul { list-style: none; } 
-h1, 
-h2, 
-h3, 
-h4, 
-h5, 
-h6 { font-size: 100%; } 
-q:before, 
-q:after { content:""; } 
+input,select{ vertical-align:middle;} 
+input,textarea,select{ font:12px Arial, Helvetica, sans-serif; } 
+fieldset, img { border: 0; } 
+address,code,caption,th,cite,dfn,em,var{font-style:normal;} 
+ol, ul { list-style: none; } 
+h1, h2, h3, h4, h5, h6 { font-size: 100%; } 
+q:before, q:after { content:""; } 
 legend{ display:none;} 
 ```
-##清除浮动
+## 清除浮动
 ```
 .clearfix:after{ content: ""; height: 0; visibility: hidden; display: block; clear: both;} 
 .clearfix{ zoom: 1;}
